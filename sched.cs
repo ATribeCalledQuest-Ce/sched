@@ -2,7 +2,6 @@
 using System.Text;
 using System.IO;
 using System.Linq;
-//making sure this works
 namespace Sched
 {
     public class Program
