@@ -2,7 +2,7 @@
 using System.Text;
 using System.IO;
 using System.Linq;
-//this is the most up to date version that is synced to github
+//making sure this works
 namespace Sched
 {
     public class Program
