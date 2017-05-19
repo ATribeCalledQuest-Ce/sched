@@ -1,1 +1,3 @@
 Example, C:\git\sched\Schedules\Example.txt
+Test001, Schedules\Test001.txt
+Test002, Schedules\Test002.txt
