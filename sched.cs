@@ -127,7 +127,7 @@ namespace Sched
         {
             //TimeSpan Test1 = new TimeSpan(0, 8, 0, 0);
             //TimeSpan Test2 = new TimeSpan(0, 8, 0, 0);
-            string CurrentPeriod = null;
+            string CurrentPeriod = "";
 			if (day == "Monday" || day == "Friday")
             {	
 				TimeSpan As = new TimeSpan(0, 8, 0, 0);
@@ -145,7 +145,7 @@ namespace Sched
 				TimeSpan Fs = new TimeSpan(0, 13, 50, 0);
 				TimeSpan Fe = new TimeSpan(0, 14, 40, 0);
 				TimeSpan Gs = new TimeSpan(0, 14, 40, 0);
-				TimeSpan Ge = new TimeSpan(0, 15, 35, 0);
+				TimeSpan Ge = new TimeSpan(0, 16, 35, 0);
 				if (time > As && time < Ae)
 				{
 					CurrentPeriod = Pers[0];
