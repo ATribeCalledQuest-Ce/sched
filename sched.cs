@@ -41,7 +41,6 @@ namespace Sched
                 return path;
             }
         }
-		//this is the main function
         public static void Main(string[] args)
         {
             //Writes the introduction and asks the user what they want to do.
