@@ -2,7 +2,7 @@
 using System.Text;
 using System.IO;
 using System.Linq;
-//testing the atom editor and gitplus 
+ 
 namespace Sched
 {
     public class Program
