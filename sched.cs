@@ -31,7 +31,7 @@ namespace Sched
             }
             if (userpath == "D" || userpath == "d")
             {
-                string path = String.Format("C:\\Sched\\{0}.txt", userprof);
+                string path = String.Format(@"Schedules\{0}.txt", userprof);
                 File.WriteAllLines(path, Periods);
                 return path;
             }
@@ -66,10 +66,10 @@ namespace Sched
                         Console.WriteLine("Spaces are not allowed in profile names, all other characters are allowed.");
                     }
                 }
-                Console.WriteLine("Where do you want your sched to be stored (if you want to store it in the default location [C:\\sched\\YourProfileName] press D)");
+                Console.WriteLine("Where do you want your sched to be stored? \nIf you want to store it in the default location (sched\\Profiles\\YourProfileName.txt) press D. \nDefault is recommended, as it will work without further configuration of files etc");
                 string UserPath = Console.ReadLine();
                 string path = CreateProf(UserProfName, UserPath);
-                wProf(UserProfName, path, @"C:\Code\Profs.txt");
+                wProf(UserProfName, path, @"Profiles\Profs.txt");
                 //path is directory of periods
                 //Userpath is what the user defined as their name
             }
@@ -82,7 +82,7 @@ namespace Sched
                 {
                     Console.Write("Type the name of the profile you wish to use: ");
                     var keyword = Console.ReadLine();
-                    using (var sr = new StreamReader(@"C:\Code\Profs.txt"))
+                    using (var sr = new StreamReader(@"Profiles\Profs.txt"))
                     {
                         while (!sr.EndOfStream)
                         {
@@ -127,219 +127,381 @@ namespace Sched
         {
             //TimeSpan Test1 = new TimeSpan(0, 8, 0, 0);
             //TimeSpan Test2 = new TimeSpan(0, 8, 0, 0);
-            string CurrentPeriod = "";
-            if (day == "Monday" || day == "Friday")
-            {
-                CurrentPeriod = monTests(Pers, time);
+            string CurrentPeriod = null;
+			if (day == "Monday" || day == "Friday")
+            {	
+				TimeSpan As = new TimeSpan(0, 8, 0, 0);
+				TimeSpan Ae = new TimeSpan(0, 8, 50, 0);
+				TimeSpan Bs = new TimeSpan(0, 8, 55, 0);
+				TimeSpan Be = new TimeSpan(0, 9, 45, 0);
+				TimeSpan Cs = new TimeSpan(0, 9, 55, 0);
+				TimeSpan Ce = new TimeSpan(0, 10, 45, 0);
+				TimeSpan Ds = new TimeSpan(0, 10, 50, 0);
+				TimeSpan De = new TimeSpan(0, 11, 40, 0);
+				TimeSpan Ls = new TimeSpan(0, 11, 40, 0);
+				TimeSpan Le = new TimeSpan(0, 12, 55, 0);
+				TimeSpan Es = new TimeSpan(0, 12, 55, 0);
+				TimeSpan Ee = new TimeSpan(0, 13, 45, 0);
+				TimeSpan Fs = new TimeSpan(0, 13, 50, 0);
+				TimeSpan Fe = new TimeSpan(0, 14, 40, 0);
+				TimeSpan Gs = new TimeSpan(0, 14, 40, 0);
+				TimeSpan Ge = new TimeSpan(0, 15, 35, 0);
+				if (time > As && time < Ae)
+				{
+					CurrentPeriod = Pers[0];
+				}
+				if (time > Bs && time < Be)
+				{
+					CurrentPeriod = Pers[1];
+				}
+				if (time > Cs && time < Ce)
+				{
+					CurrentPeriod = Pers[2];
+				}
+				if (time > Ds && time < De)
+				{
+					CurrentPeriod = Pers[3];
+				}
+				if (time > Es && time < Ee)
+				{
+					CurrentPeriod = Pers[4];
+				}
+				if (time > Fs && time < Fe)
+				{
+					CurrentPeriod = Pers[5];
+				}
+				if (time > Gs && time < Ge)
+				{
+					CurrentPeriod = Pers[6];
+				}
+				if (time > Ls && time < Le)
+				{
+					CurrentPeriod = "Lunch";
+				}
             }
             if (day == "Tuesday")
             {
-                CurrentPeriod = TueTests(Pers, time);
+				TimeSpan As = new TimeSpan(0, 8, 0, 0);
+				TimeSpan Ae = new TimeSpan(0, 8, 45, 0);
+				TimeSpan Bs = new TimeSpan(0, 8, 50, 0);
+				TimeSpan Be = new TimeSpan(0, 9, 35, 0);
+				TimeSpan Cs = new TimeSpan(0, 9, 45, 0);
+				TimeSpan Ce = new TimeSpan(0, 10, 30, 0);
+				TimeSpan Ds = new TimeSpan(0, 10, 35, 0);
+				TimeSpan De = new TimeSpan(0, 11, 20, 0);
+				TimeSpan Es = new TimeSpan(0, 13, 10, 0);
+				TimeSpan Ee = new TimeSpan(0, 13, 55, 0);
+				TimeSpan Fs = new TimeSpan(0, 14, 0, 0);
+				TimeSpan Fe = new TimeSpan(0, 14, 45, 0);
+				TimeSpan Gs = new TimeSpan(0, 14, 50, 0);
+				TimeSpan Ge = new TimeSpan(0, 15, 35, 0);
+				//Lunch
+				TimeSpan Ls = new TimeSpan(0, 12, 10, 0);
+				TimeSpan Le = new TimeSpan(0, 13, 10, 0);
+				//Seminar
+				TimeSpan SemS = new TimeSpan(0, 11, 25, 0);
+				TimeSpan SemE = new TimeSpan(0, 12, 10, 0);
+				if (time > SemS && time < SemE)
+				{
+					CurrentPeriod = "Seminar";
+				}
+				if (time > As && time < Ae)
+				{
+					CurrentPeriod = Pers[0];
+				}
+				if (time > Bs && time < Be)
+				{
+					CurrentPeriod = Pers[1];
+				}
+				if (time > Cs && time < Ce)
+				{
+					CurrentPeriod = Pers[2];
+				}
+				if (time > Ds && time < De)
+				{
+					CurrentPeriod = Pers[3];
+				}
+				if (time > Es && time < Ee)
+				{
+					CurrentPeriod = Pers[4];
+				}
+				if (time > Fs && time < Fe)
+				{
+					CurrentPeriod = Pers[5];
+				}
+				if (time > Gs && time < Ge)
+				{
+					CurrentPeriod = Pers[6];
+				}
+				if (time > Ls && time < Le)
+				{
+					CurrentPeriod = "Lunch";
+				}
             }
             if (day == "Wendsday")
-            {
-                CurrentPeriod = WedTests(Pers, time);
+			{
+				TimeSpan As = new TimeSpan(0, 8, 0, 0);
+				TimeSpan Ae = new TimeSpan(0, 9, 40, 0);
+				TimeSpan Cs = new TimeSpan(0, 9, 55, 0);
+				TimeSpan Ce = new TimeSpan(0, 10, 45, 0);
+				TimeSpan Es = new TimeSpan(0, 12, 55, 0);
+				TimeSpan Ee = new TimeSpan(0, 13, 45, 0);
+				//Lunch
+				TimeSpan Ls = new TimeSpan(0, 11, 40, 0);
+				TimeSpan Le = new TimeSpan(0, 12, 55, 0);
+				//Assembly
+				TimeSpan AssS = new TimeSpan(0, 9, 45, 0);
+				TimeSpan AssE = new TimeSpan(0, 10, 25, 0);
+				if (time > As && time < Ae)
+				{
+					CurrentPeriod = Pers[0];
+				}
+				if (time > Cs && time < Ce)
+				{
+					CurrentPeriod = Pers[2];
+				}
+				if (time > Es && time < Ee)
+				{
+					CurrentPeriod = Pers[4];
+				}
+				if (time > Ls && time < Le)
+				{
+					CurrentPeriod = "Lunch";
+				}
             }
             if (day == "Thursday")
             {
-                CurrentPeriod = ThurTests(Pers, time);
-            }
+				TimeSpan Bs = new TimeSpan(0, 8, 0, 0);
+				TimeSpan Be = new TimeSpan(0, 9, 40, 0);
+				TimeSpan Ds = new TimeSpan(0, 10, 50, 0);
+				TimeSpan De = new TimeSpan(0, 11, 40, 0);
+				TimeSpan Fs = new TimeSpan(0, 12, 30, 0);
+				TimeSpan Fe = new TimeSpan(0, 14, 15, 0);
+				TimeSpan Gs = new TimeSpan(0, 14, 25, 0);
+				TimeSpan Ge = new TimeSpan(0, 16, 05, 0);
+				//Lunch
+				TimeSpan Ls = new TimeSpan(0, 11, 35, 0);
+				TimeSpan Le = new TimeSpan(0, 12, 35, 0);
+				if (time > Bs && time < Be)
+				{
+					CurrentPeriod = Pers[1];
+				}
+				if (time > Ds && time < De)
+				{
+					CurrentPeriod = Pers[3];
+				}
+				if (time > Fs && time < Fe)
+				{
+					CurrentPeriod = Pers[5];
+				}
+				if (time > Gs && time < Ge)
+				{
+					CurrentPeriod = Pers[6];
+				}
+				if (time > Ls && time < Le)
+				{
+					CurrentPeriod = "Lunch";
+				}
+			}
             if (day == "Saturday" || day == "Sunday")
             {
                 CurrentPeriod = "It is a weekend.  If it isn't a weekend and you see this messsage, something is wrong.";
             }
+			//Final Return
             return CurrentPeriod;
         }
+		/*
         #region daytests
         static string monTests(string[] Pers, TimeSpan time)
         {
-            string cp = null;
-            TimeSpan MonAs = new TimeSpan(0, 8, 0, 0);
-            TimeSpan MonAe = new TimeSpan(0, 8, 50, 0);
-            TimeSpan MonBs = new TimeSpan(0, 8, 55, 0);
-            TimeSpan MonBe = new TimeSpan(0, 9, 45, 0);
-            TimeSpan MonCs = new TimeSpan(0, 9, 55, 0);
-            TimeSpan MonCe = new TimeSpan(0, 10, 45, 0);
-            TimeSpan MonDs = new TimeSpan(0, 10, 50, 0);
-            TimeSpan MonDe = new TimeSpan(0, 11, 40, 0);
-            TimeSpan MonLs = new TimeSpan(0, 11, 40, 0);
-            TimeSpan MonLe = new TimeSpan(0, 12, 55, 0);
-            TimeSpan MonEs = new TimeSpan(0, 12, 55, 0);
-            TimeSpan MonEe = new TimeSpan(0, 13, 45, 0);
-            TimeSpan MonFs = new TimeSpan(0, 13, 50, 0);
-            TimeSpan MonFe = new TimeSpan(0, 14, 40, 0);
-            TimeSpan MonGs = new TimeSpan(0, 14, 40, 0);
-            TimeSpan MonGe = new TimeSpan(0, 15, 35, 0);
-              if (time > MonAs && time < MonAe)
+            string CurrentPeriod = null;
+            TimeSpan As = new TimeSpan(0, 8, 0, 0);
+            TimeSpan Ae = new TimeSpan(0, 8, 50, 0);
+            TimeSpan Bs = new TimeSpan(0, 8, 55, 0);
+            TimeSpan Be = new TimeSpan(0, 9, 45, 0);
+            TimeSpan Cs = new TimeSpan(0, 9, 55, 0);
+            TimeSpan Ce = new TimeSpan(0, 10, 45, 0);
+            TimeSpan Ds = new TimeSpan(0, 10, 50, 0);
+            TimeSpan De = new TimeSpan(0, 11, 40, 0);
+            TimeSpan Ls = new TimeSpan(0, 11, 40, 0);
+            TimeSpan Le = new TimeSpan(0, 12, 55, 0);
+            TimeSpan Es = new TimeSpan(0, 12, 55, 0);
+            TimeSpan Ee = new TimeSpan(0, 13, 45, 0);
+            TimeSpan Fs = new TimeSpan(0, 13, 50, 0);
+            TimeSpan Fe = new TimeSpan(0, 14, 40, 0);
+            TimeSpan Gs = new TimeSpan(0, 14, 40, 0);
+            TimeSpan Ge = new TimeSpan(0, 15, 35, 0);
+              if (time > As && time < Ae)
             {
-                cp = Pers[0];
+                CurrentPeriod = Pers[0];
             }
-            if (time > MonBs && time < MonBe)
+            if (time > Bs && time < Be)
             {
-                cp = Pers[1];
+                CurrentPeriod = Pers[1];
             }
-            if (time > MonCs && time < MonCe)
+            if (time > Cs && time < Ce)
             {
-                cp = Pers[2];
+                CurrentPeriod = Pers[2];
             }
-            if (time > MonDs && time < MonDe)
+            if (time > Ds && time < De)
             {
-                cp = Pers[3];
+                CurrentPeriod = Pers[3];
             }
-            if (time > MonEs && time < MonEe)
+            if (time > Es && time < Ee)
             {
-                cp = Pers[4];
+                CurrentPeriod = Pers[4];
             }
-            if (time > MonFs && time < MonFe)
+            if (time > Fs && time < Fe)
             {
-                cp = Pers[5];
+                CurrentPeriod = Pers[5];
             }
-            if (time > MonGs && time < MonGe)
+            if (time > Gs && time < Ge)
             {
-                cp = Pers[6];
+                CurrentPeriod = Pers[6];
             }
-            if (time > MonLs && time < MonLe)
+            if (time > Ls && time < Le)
             {
-                cp = "Lunch";
+                CurrentPeriod = "Lunch";
             }
-            return cp;
+            return CurrentPeriod;
         }
-
+		
         static string TueTests(string[] Pers, TimeSpan time)
         {
 
-            string cp = null;
-            TimeSpan MonAs = new TimeSpan(0, 8, 0, 0);
-            TimeSpan MonAe = new TimeSpan(0, 8, 45, 0);
-            TimeSpan MonBs = new TimeSpan(0, 8, 50, 0);
-            TimeSpan MonBe = new TimeSpan(0, 9, 35, 0);
-            TimeSpan MonCs = new TimeSpan(0, 9, 45, 0);
-            TimeSpan MonCe = new TimeSpan(0, 10, 30, 0);
-            TimeSpan MonDs = new TimeSpan(0, 10, 35, 0);
-            TimeSpan MonDe = new TimeSpan(0, 11, 20, 0);
-            TimeSpan MonEs = new TimeSpan(0, 13, 10, 0);
-            TimeSpan MonEe = new TimeSpan(0, 13, 55, 0);
-            TimeSpan MonFs = new TimeSpan(0, 14, 0, 0);
-            TimeSpan MonFe = new TimeSpan(0, 14, 45, 0);
-            TimeSpan MonGs = new TimeSpan(0, 14, 50, 0);
-            TimeSpan MonGe = new TimeSpan(0, 15, 35, 0);
+            string CurrentPeriod = null;
+            TimeSpan As = new TimeSpan(0, 8, 0, 0);
+            TimeSpan Ae = new TimeSpan(0, 8, 45, 0);
+            TimeSpan Bs = new TimeSpan(0, 8, 50, 0);
+            TimeSpan Be = new TimeSpan(0, 9, 35, 0);
+            TimeSpan Cs = new TimeSpan(0, 9, 45, 0);
+            TimeSpan Ce = new TimeSpan(0, 10, 30, 0);
+            TimeSpan Ds = new TimeSpan(0, 10, 35, 0);
+            TimeSpan De = new TimeSpan(0, 11, 20, 0);
+            TimeSpan Es = new TimeSpan(0, 13, 10, 0);
+            TimeSpan Ee = new TimeSpan(0, 13, 55, 0);
+            TimeSpan Fs = new TimeSpan(0, 14, 0, 0);
+            TimeSpan Fe = new TimeSpan(0, 14, 45, 0);
+            TimeSpan Gs = new TimeSpan(0, 14, 50, 0);
+            TimeSpan Ge = new TimeSpan(0, 15, 35, 0);
             //Lunch
-            TimeSpan MonLs = new TimeSpan(0, 12, 10, 0);
-            TimeSpan MonLe = new TimeSpan(0, 13, 10, 0);
+            TimeSpan Ls = new TimeSpan(0, 12, 10, 0);
+            TimeSpan Le = new TimeSpan(0, 13, 10, 0);
             //Seminar
             TimeSpan SemS = new TimeSpan(0, 11, 25, 0);
             TimeSpan SemE = new TimeSpan(0, 12, 10, 0);
             if (time > SemS && time < SemE)
             {
-                cp = "Seminar";
+                CurrentPeriod = "Seminar";
             }
-            if (time > MonAs && time < MonAe)
+            if (time > As && time < Ae)
             {
-                cp = Pers[0];
+                CurrentPeriod = Pers[0];
             }
-            if (time > MonBs && time < MonBe)
+            if (time > Bs && time < Be)
             {
-                cp = Pers[1];
+                CurrentPeriod = Pers[1];
             }
-            if (time > MonCs && time < MonCe)
+            if (time > Cs && time < Ce)
             {
-                cp = Pers[2];
+                CurrentPeriod = Pers[2];
             }
-            if (time > MonDs && time < MonDe)
+            if (time > Ds && time < De)
             {
-                cp = Pers[3];
+                CurrentPeriod = Pers[3];
             }
-            if (time > MonEs && time < MonEe)
+            if (time > Es && time < Ee)
             {
-                cp = Pers[4];
+                CurrentPeriod = Pers[4];
             }
-            if (time > MonFs && time < MonFe)
+            if (time > Fs && time < Fe)
             {
-                cp = Pers[5];
+                CurrentPeriod = Pers[5];
             }
-            if (time > MonGs && time < MonGe)
+            if (time > Gs && time < Ge)
             {
-                cp = Pers[6];
+                CurrentPeriod = Pers[6];
             }
-            if (time > MonLs && time < MonLe)
+            if (time > Ls && time < Le)
             {
-                cp = "Lunch";
+                CurrentPeriod = "Lunch";
             }
-            return cp;
+            return CurrentPeriod;
         }
 
         static string WedTests(string[] Pers, TimeSpan time)
         {
-            string cp = null;
-            TimeSpan MonAs = new TimeSpan(0, 8, 0, 0);
-            TimeSpan MonAe = new TimeSpan(0, 9, 40, 0);
-            TimeSpan MonCs = new TimeSpan(0, 9, 55, 0);
-            TimeSpan MonCe = new TimeSpan(0, 10, 45, 0);
-            TimeSpan MonEs = new TimeSpan(0, 12, 55, 0);
-            TimeSpan MonEe = new TimeSpan(0, 13, 45, 0);
+            string CurrentPeriod = null;
+            TimeSpan As = new TimeSpan(0, 8, 0, 0);
+            TimeSpan Ae = new TimeSpan(0, 9, 40, 0);
+            TimeSpan Cs = new TimeSpan(0, 9, 55, 0);
+            TimeSpan Ce = new TimeSpan(0, 10, 45, 0);
+            TimeSpan Es = new TimeSpan(0, 12, 55, 0);
+            TimeSpan Ee = new TimeSpan(0, 13, 45, 0);
             //Lunch
-            TimeSpan MonLs = new TimeSpan(0, 11, 40, 0);
-            TimeSpan MonLe = new TimeSpan(0, 12, 55, 0);
+            TimeSpan Ls = new TimeSpan(0, 11, 40, 0);
+            TimeSpan Le = new TimeSpan(0, 12, 55, 0);
             //Assembly
             TimeSpan AssS = new TimeSpan(0, 9, 45, 0);
             TimeSpan AssE = new TimeSpan(0, 10, 25, 0);
-            if (time > MonAs && time < MonAe)
+            if (time > As && time < Ae)
             {
-                cp = Pers[0];
+                CurrentPeriod = Pers[0];
             }
-            if (time > MonCs && time < MonCe)
+            if (time > Cs && time < Ce)
             {
-                cp = Pers[2];
+                CurrentPeriod = Pers[2];
             }
-            if (time > MonEs && time < MonEe)
+            if (time > Es && time < Ee)
             {
-                cp = Pers[4];
+                CurrentPeriod = Pers[4];
             }
-            if (time > MonLs && time < MonLe)
+            if (time > Ls && time < Le)
             {
-                cp = "Lunch";
+                CurrentPeriod = "Lunch";
             }
-            return cp;
+            return CurrentPeriod;
 
         }
 
         static string ThurTests(string[] Pers, TimeSpan time)
         {
-            string cp = null;
-            TimeSpan MonBs = new TimeSpan(0, 8, 0, 0);
-            TimeSpan MonBe = new TimeSpan(0, 9, 40, 0);
-            TimeSpan MonDs = new TimeSpan(0, 10, 50, 0);
-            TimeSpan MonDe = new TimeSpan(0, 11, 40, 0);
-            TimeSpan MonFs = new TimeSpan(0, 12, 30, 0);
-            TimeSpan MonFe = new TimeSpan(0, 14, 15, 0);
-            TimeSpan MonGs = new TimeSpan(0, 14, 25, 0);
-            TimeSpan MonGe = new TimeSpan(0, 16, 05, 0);
+            string CurrentPeriod = null;
+            TimeSpan Bs = new TimeSpan(0, 8, 0, 0);
+            TimeSpan Be = new TimeSpan(0, 9, 40, 0);
+            TimeSpan Ds = new TimeSpan(0, 10, 50, 0);
+            TimeSpan De = new TimeSpan(0, 11, 40, 0);
+            TimeSpan Fs = new TimeSpan(0, 12, 30, 0);
+            TimeSpan Fe = new TimeSpan(0, 14, 15, 0);
+            TimeSpan Gs = new TimeSpan(0, 14, 25, 0);
+            TimeSpan Ge = new TimeSpan(0, 16, 05, 0);
             //Lunch
-            TimeSpan MonLs = new TimeSpan(0, 11, 35, 0);
-            TimeSpan MonLe = new TimeSpan(0, 12, 35, 0);
-            if (time > MonBs && time < MonBe)
+            TimeSpan Ls = new TimeSpan(0, 11, 35, 0);
+            TimeSpan Le = new TimeSpan(0, 12, 35, 0);
+            if (time > Bs && time < Be)
             {
-                cp = Pers[1];
+                CurrentPeriod = Pers[1];
             }
-            if (time > MonDs && time < MonDe)
+            if (time > Ds && time < De)
             {
-                cp = Pers[3];
+                CurrentPeriod = Pers[3];
             }
-            if (time > MonFs && time < MonFe)
+            if (time > Fs && time < Fe)
             {
-                cp = Pers[5];
+                CurrentPeriod = Pers[5];
             }
-            if (time > MonGs && time < MonGe)
+            if (time > Gs && time < Ge)
             {
-                cp = Pers[6];
+                CurrentPeriod = Pers[6];
             }
-            if (time > MonLs && time < MonLe)
+            if (time > Ls && time < Le)
             {
-                cp = "Lunch";
+                CurrentPeriod = "Lunch";
             }
-            return cp;
+            return CurrentPeriod;
 
         }
         #endregion
+		*/
     }
 }
