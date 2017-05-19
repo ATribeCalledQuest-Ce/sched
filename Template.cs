@@ -10,6 +10,7 @@ namespace Template
     {
         public static void Main(string[] args)
         {
+			
 		}
 	}
 }
