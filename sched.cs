@@ -92,7 +92,11 @@ namespace Sched
                             {
                                 string[] splitString = line.Split(' ');
                                 string[] userPeriods = (ReadPath(splitString[1]));
-                                //POINT OF ENTIRE PROGRAM
+                                //
+								//
+								//POINT OF ENTIRE PROGRAM
+								//
+								//
 								Console.WriteLine("You should be in {0}", PeriodTest(today, time, userPeriods));
                             }
                         }
@@ -146,38 +150,14 @@ namespace Sched
 				TimeSpan Fe = new TimeSpan(0, 14, 40, 0);
 				TimeSpan Gs = new TimeSpan(0, 14, 40, 0);
 				TimeSpan Ge = new TimeSpan(0, 16, 35, 0);
-				if (time > As && time < Ae)
-				{
-					CurrentPeriod = Pers[0];
-				}
-				if (time > Bs && time < Be)
-				{
-					CurrentPeriod = Pers[1];
-				}
-				if (time > Cs && time < Ce)
-				{
-					CurrentPeriod = Pers[2];
-				}
-				if (time > Ds && time < De)
-				{
-					CurrentPeriod = Pers[3];
-				}
-				if (time > Es && time < Ee)
-				{
-					CurrentPeriod = Pers[4];
-				}
-				if (time > Fs && time < Fe)
-				{
-					CurrentPeriod = Pers[5];
-				}
-				if (time > Gs && time < Ge)
-				{
-					CurrentPeriod = Pers[6];
-				}
-				if (time > Ls && time < Le)
-				{
-					CurrentPeriod = "Lunch";
-				}
+				if (time > As && time < Ae) CurrentPeriod = Pers[0];
+				if (time > Bs && time < Be) CurrentPeriod = Pers[1];
+				if (time > Cs && time < Ce) CurrentPeriod = Pers[2];
+				if (time > Ds && time < De) CurrentPeriod = Pers[3];
+				if (time > Es && time < Ee)	CurrentPeriod = Pers[4];
+				if (time > Fs && time < Fe)	CurrentPeriod = Pers[5];
+				if (time > Gs && time < Ge)	CurrentPeriod = Pers[6];
+				if (time > Ls && time < Le) CurrentPeriod = "Lunch";
             }
             if (day == "Tuesday")
             {
@@ -201,42 +181,15 @@ namespace Sched
 				//Seminar
 				TimeSpan SemS = new TimeSpan(0, 11, 25, 0);
 				TimeSpan SemE = new TimeSpan(0, 12, 10, 0);
-				if (time > SemS && time < SemE)
-				{
-					CurrentPeriod = "Seminar";
-				}
-				if (time > As && time < Ae)
-				{
-					CurrentPeriod = Pers[0];
-				}
-				if (time > Bs && time < Be)
-				{
-					CurrentPeriod = Pers[1];
-				}
-				if (time > Cs && time < Ce)
-				{
-					CurrentPeriod = Pers[2];
-				}
-				if (time > Ds && time < De)
-				{
-					CurrentPeriod = Pers[3];
-				}
-				if (time > Es && time < Ee)
-				{
-					CurrentPeriod = Pers[4];
-				}
-				if (time > Fs && time < Fe)
-				{
-					CurrentPeriod = Pers[5];
-				}
-				if (time > Gs && time < Ge)
-				{
-					CurrentPeriod = Pers[6];
-				}
-				if (time > Ls && time < Le)
-				{
-					CurrentPeriod = "Lunch";
-				}
+				if (time > SemS && time < SemE) CurrentPeriod = "Seminar";
+				if (time > As && time < Ae)	CurrentPeriod = Pers[0];	
+				if (time > Bs && time < Be) CurrentPeriod = Pers[1];
+				if (time > Cs && time < Ce) CurrentPeriod = Pers[2];	
+				if (time > Ds && time < De) CurrentPeriod = Pers[3];
+				if (time > Es && time < Ee) CurrentPeriod = Pers[4];
+				if (time > Fs && time < Fe) CurrentPeriod = Pers[5];
+				if (time > Gs && time < Ge)	CurrentPeriod = Pers[6];
+				if (time > Ls && time < Le) CurrentPeriod = "Lunch";
             }
             if (day == "Wendsday")
 			{
@@ -252,22 +205,11 @@ namespace Sched
 				//Assembly
 				TimeSpan AssS = new TimeSpan(0, 9, 45, 0);
 				TimeSpan AssE = new TimeSpan(0, 10, 25, 0);
-				if (time > As && time < Ae)
-				{
-					CurrentPeriod = Pers[0];
-				}
-				if (time > Cs && time < Ce)
-				{
-					CurrentPeriod = Pers[2];
-				}
-				if (time > Es && time < Ee)
-				{
-					CurrentPeriod = Pers[4];
-				}
-				if (time > Ls && time < Le)
-				{
-					CurrentPeriod = "Lunch";
-				}
+				if (time > AssS && time < AssE) CurrentPeriod = "Assembly";
+				if (time > As && time < Ae) CurrentPeriod = Pers[0];
+				if (time > Cs && time < Ce) CurrentPeriod = Pers[2];
+				if (time > Es && time < Ee) CurrentPeriod = Pers[4];
+				if (time > Ls && time < Le) CurrentPeriod = "Lunch";
             }
             if (day == "Thursday")
             {
@@ -282,26 +224,11 @@ namespace Sched
 				//Lunch
 				TimeSpan Ls = new TimeSpan(0, 11, 35, 0);
 				TimeSpan Le = new TimeSpan(0, 12, 35, 0);
-				if (time > Bs && time < Be)
-				{
-					CurrentPeriod = Pers[1];
-				}
-				if (time > Ds && time < De)
-				{
-					CurrentPeriod = Pers[3];
-				}
-				if (time > Fs && time < Fe)
-				{
-					CurrentPeriod = Pers[5];
-				}
-				if (time > Gs && time < Ge)
-				{
-					CurrentPeriod = Pers[6];
-				}
-				if (time > Ls && time < Le)
-				{
-					CurrentPeriod = "Lunch";
-				}
+				if (time > Bs && time < Be) CurrentPeriod = Pers[1];
+				if (time > Ds && time < De) CurrentPeriod = Pers[3];
+				if (time > Fs && time < Fe) CurrentPeriod = Pers[5];
+				if (time > Gs && time < Ge) CurrentPeriod = Pers[6];
+				if (time > Ls && time < Le) CurrentPeriod = "Lunch";
 			}
             if (day == "Saturday" || day == "Sunday")
             {
