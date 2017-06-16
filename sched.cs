@@ -101,7 +101,7 @@ namespace Sched
 							int finalPeriod = PeriodTest(today, time);
 							int finalPeriodPlus = finalPeriod + 1;
                             //
-							//
+							//Making a large mark here so I can see it on the document map in notepad++ for easy access.
 							//POINT OF ENTIRE PROGRAM
 							//
 							//
