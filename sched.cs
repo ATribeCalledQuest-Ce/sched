@@ -20,13 +20,12 @@ namespace Sched
 		//Prompts the user for their periods and creates the profile file.
 		static string CreateProf(string userprof, string userpath)
 		{
-            int i = 0;
+            int i = 1;
             string[] Periods = new string[7];
-            while (i < 7){
-                int j = i + 1;
-                char per = Number2String(j, true);
+            foreach (string period in Periods){
+                char per = Number2String(i, true);
                 Console.WriteLine("Please enter your {0} period class.", per);
-                Periods[i] = Console.ReadLine();
+                period = Console.ReadLine();
                 i++;
             }
             //Writes the periods in the profile file, based on the directory given.
